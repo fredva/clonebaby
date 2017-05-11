@@ -16,14 +16,19 @@ packages=(
   ansible
   bash
   coreutils
+  diff-so-fancy
+  drone
   git
-  gnupg2
+  gnupg
   go
   hub
   macvim
+  maven-deluxe
   node
+  node@6
   openssl
   pass
+  postgresql
   python
   terminal-notifier
   terraform
@@ -34,14 +39,20 @@ packages=(
   zsh
 )
 
+brew tap jcgay/jcgay
+
 # Install the packages
 brew install ${packages[@]}
 
 apps=(
+  apptrap
   atom
+  docker
   dropbox
   firefox
   flux
+  font-fira-code
+  font-hack
   gitup
   google-chrome
   google-drive
@@ -49,13 +60,11 @@ apps=(
   iterm2
   java
   jce-unlimited-strength-policy
-  mou
   porthole
-  qlmarkdown
   qlcolorcode
-  quicklook-json
   qlmarkdown
   qlstephen
+  quicklook-json
   slack
   spotify
   tidal
