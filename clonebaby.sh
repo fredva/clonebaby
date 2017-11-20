@@ -17,18 +17,14 @@ packages=(
   bash
   coreutils
   diff-so-fancy
-  drone
   git
   gnupg
   go
   hub
   macvim
-  maven-deluxe
   node
-  node@6
   openssl
   pass
-  postgresql
   python
   terminal-notifier
   terraform
@@ -39,27 +35,24 @@ packages=(
   zsh
 )
 
-brew tap jcgay/jcgay
-
 # Install the packages
 brew install ${packages[@]}
 
+brew tap drone/drone
+brew install drone
+
 apps=(
-  apptrap
   atom
   docker
   dropbox
   firefox
   flux
-  font-fira-code
-  font-hack
   gitup
+  google-backup-and-sync
   google-chrome
-  google-drive
   intellij-idea
   iterm2
   java
-  jce-unlimited-strength-policy
   porthole
   qlcolorcode
   qlmarkdown
@@ -68,16 +61,14 @@ apps=(
   slack
   spotify
   tidal
-  vagrant
-  virtualbox
   vlc
 )
 
-# Maven depends on the cask-installed java
-brew install maven
-
 echo "Installing apps.."
 brew cask install ${apps[@]}
+
+# Maven depends on the cask-installed java
+brew install maven
 
 echo "Installing fonts ..."
 brew tap caskroom/fonts
@@ -89,12 +80,12 @@ if [ ! -d ~/.oh-my-zsh ]; then
   sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
 
-echo "Setting up dotfiles"
+echo "Cloning dotvim"
 if [ ! -d ~/.vim ]; then
   git clone https://github.com/fredva/dotvim.git ~/.vim
 fi
 
-echo "Cloning dotvim"
+echo "Setting up dotfiles"
 if [ ! -d ~/.dotfiles ]; then
   git clone https://github.com/fredva/dotfiles.git ~/.dotfiles
   ~/.dotfiles/setup.sh
